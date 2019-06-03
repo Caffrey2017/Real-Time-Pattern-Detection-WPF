@@ -1,0 +1,104 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      xmlns:Wpf="clr-namespace:WebEye.Controls.Wpf;assembly=WebEye.Controls.Wpf.WebCameraControl" x:Class="WpfApp1.Page1"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="Page1" Height="883" Width="1248" ShowsNavigationUI="True">
+    <Page.Background>
+        <ImageBrush ImageSource="C:\Users\Chase\Repositories\WpfApp1\WpfApp1\WpfApp1\Backgrounds\trianglify.png" Stretch="Fill"/>
+    </Page.Background>
+
+    <Grid Margin="0,0,2,0" HorizontalAlignment="Right" Width="1248" Height="883">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="104*"/>
+            <ColumnDefinition Width="309"/>
+            <ColumnDefinition Width="104*"/>
+            <ColumnDefinition Width="105*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Image x:Name="imageControlOne" Height="315" Width="315" VerticalAlignment="Top" Margin="65,25,238,0" Grid.ColumnSpan="2"/>
+        <Image x:Name="imageControlTwo" HorizontalAlignment="Left" Height="315" Width="315" VerticalAlignment="Top" Margin="132,25,0,0" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Image x:Name="imageControlThree" HorizontalAlignment="Left" Height="315" Margin="65,358,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2"/>
+        <Image x:Name="imageControlFour" HorizontalAlignment="Left" Height="315" Margin="132,358,0,0" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2" Grid.Column="1"/>
+
+
+        <StackPanel Orientation="Horizontal" Margin="197,716,197,99" Grid.ColumnSpan="4">
+            <Button x:Name="convertToGrayscale" Content="Convert to Grayscale" MinWidth="200" Click="ConvertToGrayscale_Click" FontSize="18" Foreground="White" OpacityMask="Black" >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#00000000" Opacity="0.8"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.2"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="thresholdBinary" Content="Binary Threshold" FontSize="18" MinWidth="200" Click="ThresholdBinary_Click" Foreground="White" OpacityMask="Black" Margin="10, 0, 0 ,0">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#00000000" Opacity="0.8"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.2"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="cannyButton" Content="Canny Edges" FontSize="18" Click="Canny_Click" MinWidth="200" Foreground="White" OpacityMask="Black" Margin="10, 0, 0 ,0" Width="154">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#00000000" Opacity="0.8"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.2"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="compareValues" Content="Compare Houghlines"  MinWidth="200" FontSize="18" Click="Compare_Values_Click" Foreground="White" OpacityMask="Black" Margin="10, 0, 0 ,0">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#00000000" Opacity="0.8"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.2"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        
+        <!--<Button x:Name="back" Content="Back" FontSize="18" Click="Back_Click" Foreground="White" OpacityMask="Black" Margin="274,807,298,47" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#00000000" Opacity="0.8"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </Button.Background>
+        </Button>-->
+
+
+        <TextBox x:Name="templateValues" Height="134" TextWrapping="Wrap" VerticalAlignment="Top" Margin="181,120,249,0" Grid.Column="2" Grid.ColumnSpan="2" Foreground="#FFFBFBFB" Background="#33000000" BorderBrush="#00000000" FontFamily="SimSun-ExtB" FontSize="18" TextAlignment="Center"/>
+        <TextBox x:Name="valuesList" HorizontalAlignment="Left" Height="134" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Margin="85,120,0,0" Grid.Column="3" Foreground="#FFFBFBFB" Background="#33000000" BorderBrush="#00000000" FontFamily="SimSun-ExtB" FontSize="18" TextAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+        <TextBox HorizontalAlignment="Left" Height="59" Width="196" TextWrapping="Wrap" Text="Source Image Houghline Count" VerticalAlignment="Top" Margin="85,56,0,0" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="24" Grid.Column="3" FontFamily="SimSun-ExtB" FontWeight="Bold">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="#FFF9F9F9" Opacity="0.8"/>
+            </TextBox.Foreground>
+            <TextBox.Background>
+                <SolidColorBrush Color="#00000000" Opacity="0.2"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Height="59" Width="197" TextWrapping="Wrap" Text="Template Image Houghline Count" VerticalAlignment="Top" Margin="181,56,0,0" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="24" Grid.Column="2" Grid.ColumnSpan="2" FontFamily="SimSun-ExtB" FontWeight="Bold">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="#FFF9F9F9" Opacity="0.8"/>
+            </TextBox.Foreground>
+            <TextBox.Background>
+                <SolidColorBrush Color="#00000000" Opacity="0.2"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="finalResult" HorizontalAlignment="Left" Height="134" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" Margin="286,323,0,0" Grid.Column="2" Foreground="#FFFBFBFB" Background="#33000000" BorderBrush="#00000000" Grid.ColumnSpan="2" FontFamily="SimSun-ExtB" FontSize="18"/>
+        <TextBox HorizontalAlignment="Right" Height="59" Width="197" TextWrapping="Wrap" Text="Comparison Results" VerticalAlignment="Top" Margin="0,259,144,0" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="24" Grid.Column="2" FontFamily="SimSun-ExtB" Grid.ColumnSpan="2" FontWeight="Bold">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="#FFF9F9F9" Opacity="0.8"/>
+            </TextBox.Foreground>
+            <TextBox.Background>
+                <SolidColorBrush Color="#00000000" Opacity="0.2"/>
+            </TextBox.Background>
+        </TextBox>
+        <Rectangle Grid.ColumnSpan="2" Grid.Column="2" Fill="#00000000" HorizontalAlignment="Left" Height="446" Margin="158,40,0,0" Stroke="White" VerticalAlignment="Top" Width="459"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,52 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:WebcamControl="clr-namespace:WebcamControl;assembly=WebcamControl" xmlns:Wpf="clr-namespace:WebEye.Controls.Wpf;assembly=WebEye.Controls.Wpf.WebCameraControl"
+    xmlns:ui="clr-namespace:Emgu.CV.UI;assembly=Emgu.CV.UI" x:Class="WpfApp1.MainWindow"
+        mc:Ignorable="d"
+        Title="Image Comparison" Height="883" Width="1248">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\Chase\Repositories\WpfApp1\WpfApp1\WpfApp1\Backgrounds\trianglify.png"/>
+    </Window.Background>
+
+    <Grid Margin="0,0,2,17" HorizontalAlignment="Right" Width="1248" Height="883">
+
+
+        <StackPanel Margin="323,350">
+            <Grid Height="148">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="107*"/>
+                    <RowDefinition Height="105*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="pageOneButton" Content="Static Image Processing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="254" Click="Page_One_Click" RenderTransformOrigin="0.5,0.5" Height="102" Margin="10,24,0,0" Grid.RowSpan="2" Foreground="White" FontSize="22" OpacityMask="Black">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="White" Opacity="0.8"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.2"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="pageTwoButton" Content="Real-Time Image Processing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="254" Click="Page_Two_Click" RenderTransformOrigin="0.5,0.5" Height="102" Margin="320,24,0,0" Grid.RowSpan="2" Foreground="White" FontSize="20" OpacityMask="Black">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="White" Opacity="0.8"/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.2"/>
+                    </Button.Background>
+                </Button>
+
+
+
+
+            </Grid>
+        </StackPanel>
+
+        <Frame x:Name="Main" Height="883" Width="1248" Margin="0,10,0,-10"/>
+        
+
+
+    </Grid>
+</Window>
